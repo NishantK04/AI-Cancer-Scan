@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".HeapMapActivity">
+
+    <!-- CardView with better elevation, roundness, and padding -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPhoto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="250dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnZoom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_image_background"
+            android:scaleType="centerInside"
+            android:src="@drawable/database" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Floating Button with drop shadow look -->
+    <ImageButton
+        android:id="@+id/btnZoom"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/zoom_button_background"
+        android:contentDescription="@string/zoom_image"
+        android:src="@drawable/ic_zoom_in_24"
+        android:scaleType="centerInside"
+        android:elevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cardViewPhoto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Centered Progress Spinner -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@android:color/holo_blue_light"
+        android:visibility="gone"
+        android:elevation="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back button with transparent rounded background -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:contentDescription="Back"
+        android:elevation="8dp"
+        android:background="@drawable/leftarrow"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

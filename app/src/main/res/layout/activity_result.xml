@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <!-- Back Arrow -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="35dp"
+            android:layout_height="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/leftarrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Summary Title -->
+        <TextView
+            android:id="@+id/summary_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summary"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/back_button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- CardView for Image + Info -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/result_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="10dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/summary_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Image -->
+                <ImageView
+                    android:id="@+id/result_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/medical" />
+
+                <!-- Text Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="#1C1C1E">
+
+                    <!-- Prediction Label -->
+                    <TextView
+                        android:id="@+id/result_prediction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prediction: Cancer"
+                        android:textColor="@android:color/holo_orange_light"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- Risk Level -->
+                    <TextView
+                        android:id="@+id/result_risk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="High Risk"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/result_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="The AI model detected a high possibility of cancer in the biopsy.\n\nThis is not a diagnosis, but a recommendation for further evaluation."
+                        android:textColor="#BDBDBD"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Learn More Button -->
+                    <Button
+                        android:id="@+id/btn_learn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Learn..."
+                        android:backgroundTint="#2196F3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginTop="12dp"
+                        android:paddingLeft="24dp"
+                        android:paddingRight="24dp"
+                        android:minHeight="40dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Confidence Section -->
+        <TextView
+            android:id="@+id/confidence_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confidence"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/result_card"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/confidence_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80%"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="@id/confidence_label"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/confidence_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_margin="10dp"
+            android:progress="80"
+            android:progressTint="#2196F3"
+            android:background="#444444"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/confidence_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Details Section -->
+        <TextView
+            android:id="@+id/details_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/confidence_progress"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/model_used_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model Used"
+            android:textColor="#BDBDBD"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/details_label"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/model_used_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Breast Cancer"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@id/model_used_label"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

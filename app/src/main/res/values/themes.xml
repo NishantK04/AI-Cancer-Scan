@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CancerPrediction" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:statusBarColor">#030625</item>
+
+
+        <!-- or any other color -->
+
+        <!-- Customize your light theme here. -->
+
+
+        <!-- Button style customization -->
+    </style>
+
+    <style name="Theme.CancerPrediction" parent="Base.Theme.CancerPrediction" />
+
+</resources>

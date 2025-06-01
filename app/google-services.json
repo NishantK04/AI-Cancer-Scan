@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "686711363333",
+    "project_id": "cancerprediction-4d22d",
+    "storage_bucket": "cancerprediction-4d22d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686711363333:android:f8f1c75706b51cd5bf496c",
+        "android_client_info": {
+          "package_name": "com.nishant.cancerprediction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686711363333-pk9g87lmp5fm3latl8t7h8c279cj67tc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nishant.cancerprediction",
+            "certificate_hash": "230d5ecb67032a6afb648b752e26c6b1a90ac7d5"
+          }
+        },
+        {
+          "client_id": "686711363333-v2rukjdbasl38cvetpajj3vod090fk8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCE6CWGQrMSGwe9kD4MfIn9vGV-UElOlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686711363333-v2rukjdbasl38cvetpajj3vod090fk8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

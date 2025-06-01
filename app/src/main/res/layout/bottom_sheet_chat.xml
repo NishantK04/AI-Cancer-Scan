@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ScrollView
+            android:id="@+id/scrollViewBotReply"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvBotReply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hi! Ask me about our services."
+                android:textAppearance="?android:textAppearanceMedium"/>
+        </ScrollView>
+
+        <EditText
+            android:id="@+id/etUserMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ask something..."
+            android:background="@drawable/edit_text_background"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_gravity="end"
+            android:textColor="@color/white"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

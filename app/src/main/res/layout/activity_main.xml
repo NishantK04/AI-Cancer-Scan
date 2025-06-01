@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#020524"
+    android:fitsSystemWindows="false">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:contentDescription="Background image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginbg" />
+
+
+    <!-- Description Text -->
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backgroundImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_horizontal"
+        android:text="Where Early Detection Meets Peace of Mind"
+        android:textColor="@android:color/white"
+        android:textSize="29sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/socialDivider1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#9CABBA" />
+
+        <TextView
+            android:id="@+id/loginLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Login in or sign up"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#9CABBA" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/socialDivider1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Flag only -->
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/edit_text_background"
+            android:gravity="center"
+            app:ccp_defaultNameCode="IN"
+            app:ccp_showFlag="true"
+            app:ccp_showFullName="false"
+            app:ccp_showNameCode="false"
+            app:ccp_showPhoneCode="false" />
+
+        <!-- Phone input next to flag -->
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:digits="0123456789"
+            android:hint=" Phone Number"
+            android:inputType="phone"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNumber"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/button_background"
+        android:text="GET OTP"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/socialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#9CABBA" />
+
+        <TextView
+            android:id="@+id/socialMediaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="or"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#9CABBA" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/singup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/socialDivider"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <!-- Google Button -->
+        <ImageButton
+            android:id="@+id/googleButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/socialDivider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/circle_background"
+            android:contentDescription="Sign in with Google"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/glogo" />
+
+        <!-- Google Button -->
+        <ImageButton
+            android:id="@+id/mailButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/socialDivider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/circle_background"
+            android:contentDescription="Sign in with Google"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/mail" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/termsCondi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/singup"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="Terms &amp; Condition"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="normal" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="#7960EB"
+        android:visibility="gone" />
+
+
+    <!-- Facebook Button -->
+</RelativeLayout>
