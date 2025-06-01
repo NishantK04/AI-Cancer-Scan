@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Google Sign-In setup
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))  // Make sure to replace with your web client ID
+                .requestIdToken(BuildConfig.DEFAULT_WEB_CLIENT_ID)  // Make sure to replace with your web client ID
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);

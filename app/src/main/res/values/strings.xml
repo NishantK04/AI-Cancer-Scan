@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">CancerPrediction</string>
-    <string name="default_web_client_id">AIzaSyDCE6CWGQrMSGwe9kD4MfIn9vGV-UElOlk</string>
     <string name="zoom_image">Zoom Image</string>
 
 

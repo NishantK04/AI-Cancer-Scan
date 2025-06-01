@@ -4,6 +4,10 @@ plugins {
 }
 
 android {
+
+    buildFeatures {
+        buildConfig = true
+    }
     namespace = "com.nishant.cancerprediction"
     compileSdk = 35
 
@@ -15,6 +19,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "DEFAULT_WEB_CLIENT_ID", "\"${project.properties["DEFAULT_WEB_CLIENT_ID"]}\"")
+
     }
 
     buildTypes {
