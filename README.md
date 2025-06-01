@@ -11,7 +11,7 @@
 ---
 
 ## 📸 Screenshots  
-<img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/login.jpg" width="280">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/home.jpg" width="280">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/breastcanceroption.jpg" width="280">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/result.jpg" width="280"> <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/gradcam.jpg" width="280">
+<img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/login.jpg" width="250">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/home.jpg" width="250">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/breastcanceroption.jpg" width="250">  <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/result.jpg" width="250"> <img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/gradcam.jpg" width="250">
 
 ---
 
