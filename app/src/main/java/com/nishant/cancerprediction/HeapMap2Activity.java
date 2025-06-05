@@ -45,7 +45,7 @@ public class HeapMap2Activity extends AppCompatActivity {
 
     // ─────────── CONFIG ───────────
     private static final String TAG = "HeapMap2Activity";
-    private static final String FLASK_IP = "192.168.0.191";   // <- change if different
+    private static final String FLASK_IP = "10.10.143.77";   // <- change if different
     private static final String POST_URL  = "http://" + FLASK_IP + ":5001/gradcam";
     private static final String IMAGE_URL = "http://" + FLASK_IP + ":5001/gradcam-image";
     // ──────────────────────────────

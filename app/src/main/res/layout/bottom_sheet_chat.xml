@@ -5,50 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="8dp"
-    android:background="@android:color/white">
-
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp"
+    android:background="@android:color/transparent"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@android:color/white"
+        android:padding="16dp"
+        android:elevation="6dp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
 
+        <!-- Toolbar/Header Row -->
+        <LinearLayout
+            android:id="@+id/chatHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp">
+
+            <!-- Chatbot Circular Image -->
+            <ImageView
+                android:id="@+id/chatbotImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/aibot"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+                android:padding="4dp" />
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Micky"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/blue" />
+
+            <!-- Down Arrow -->
+            <ImageView
+                android:id="@+id/arrowDown"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/keyarrow"
+                android:contentDescription="Collapse"
+                android:padding="4dp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Enlarged ScrollView for chat -->
         <ScrollView
             android:id="@+id/scrollViewBotReply"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="300dp"
             android:fillViewport="true"
             android:scrollbars="vertical"
             android:paddingBottom="8dp">
 
-            <TextView
-                android:id="@+id/tvBotReply"
+            <LinearLayout
+                android:id="@+id/messagesContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hi! Ask me about our services."
-                android:textAppearance="?android:textAppearanceMedium"/>
+                android:orientation="vertical" />
         </ScrollView>
 
-        <EditText
-            android:id="@+id/etUserMessage"
+        <!-- Horizontal layout for input and send button -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ask something..."
-            android:background="@drawable/edit_text_background"
-            android:padding="8dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:layout_gravity="end"
-            android:textColor="@color/white"
-            android:background="@drawable/button_background"
-            android:layout_marginTop="12dp"/>
+            <EditText
+                android:id="@+id/etUserMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Ask something..."
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"
+                android:maxLines="4"
+                android:minHeight="48dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textColor="@color/white"
+                android:background="@drawable/button_background"
+                android:layout_marginStart="8dp"
+                android:paddingHorizontal="16dp"
+                android:minHeight="48dp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
