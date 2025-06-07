@@ -6,7 +6,7 @@
 ---
 
 ## 🎥 Preview  
-<img src="https://github.com/yourusername/CancerDetect/blob/main/preview.gif" width="280">
+<img src="https://github.com/NishantK04/AI-Cancer-Scan/blob/main/Demo.gif" width="400">
 
 ---
 
