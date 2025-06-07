@@ -44,7 +44,7 @@ public class HeapMapActivity extends AppCompatActivity {
     private ImageView btnZoom;
     private ImageView btnBack;
 
-    private static final String FLASK_SERVER_IP = "192.168.0.190:5000";
+    private static final String FLASK_SERVER_IP = "192.168.0.196:5000";
     private static final String FLASK_POST_URL = "http://" + FLASK_SERVER_IP + "/gradcam";
     private static final String FLASK_IMAGE_URL = "http://" + FLASK_SERVER_IP + "/gradcam-image";
 

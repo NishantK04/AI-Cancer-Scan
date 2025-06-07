@@ -1,7 +1,9 @@
 package com.nishant.cancerprediction;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -25,10 +27,13 @@ import com.google.firebase.auth.PhoneAuthProvider;
 public class OtpActivity extends AppCompatActivity {
 
     EditText otp1, otp2, otp3, otp4, otp5, otp6;
-    TextView phone_number;
+    TextView phone_number, resendTimerText;
     private String verificationId;
     Button verifyOtp;
     ProgressBar progressBar;
+
+    CountDownTimer countDownTimer;
+    long timeLeftInMillis = 60000; // 60 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +47,6 @@ public class OtpActivity extends AppCompatActivity {
             return insets;
         });
 
-
         // Initialize views
         otp1 = findViewById(R.id.otp1);
         otp2 = findViewById(R.id.otp2);
@@ -52,20 +56,25 @@ public class OtpActivity extends AppCompatActivity {
         otp6 = findViewById(R.id.otp6);
         verifyOtp = findViewById(R.id.verifyOtp);
         phone_number = findViewById(R.id.phone_number);
+        resendTimerText = findViewById(R.id.resend_timer); // NEW
         progressBar = findViewById(R.id.otpProgress);
-
-        // OTP input focus handling
-        setupOtpInputs();
 
         // Get data from previous activity
         String mobile = getIntent().getStringExtra("mobile_number");
         verificationId = getIntent().getStringExtra("verificationId");
         phone_number.setText(mobile);
 
+        // OTP input focus handling
+        setupOtpInputs();
+
         // Back
         TextView goBackText = findViewById(R.id.go_back_text);
         goBackText.setOnClickListener(v -> finish());
 
+        // Start resend timer
+        startResendOtpTimer();
+
+        // Verify OTP logic
         verifyOtp.setOnClickListener(v -> {
             String enteredOtp = otp1.getText().toString().trim() +
                     otp2.getText().toString().trim() +
@@ -75,11 +84,9 @@ public class OtpActivity extends AppCompatActivity {
                     otp6.getText().toString().trim();
 
             if (enteredOtp.length() == 6 && verificationId != null) {
-                // Show progress and disable button IMMEDIATELY
                 progressBar.setVisibility(View.VISIBLE);
                 verifyOtp.setEnabled(false);
 
-                // Delay execution slightly to let UI update
                 verifyOtp.post(() -> {
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, enteredOtp);
 
@@ -104,9 +111,6 @@ public class OtpActivity extends AppCompatActivity {
                 Toast.makeText(this, "Enter valid 6-digit OTP", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
     }
 
     private void setupOtpInputs() {
@@ -139,6 +143,44 @@ public class OtpActivity extends AppCompatActivity {
                 }
                 return false;
             });
+        }
+    }
+
+    private void startResendOtpTimer() {
+        resendTimerText.setEnabled(false);
+        resendTimerText.setTextColor(Color.GRAY);
+
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                int seconds = (int) (timeLeftInMillis / 1000);
+                resendTimerText.setText("Didn’t get the OTP? Resend in " + seconds + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                resendTimerText.setText("Resend OTP");
+                resendTimerText.setEnabled(true);
+                resendTimerText.setTextColor(Color.WHITE);
+
+                resendTimerText.setOnClickListener(v -> {
+                    // TODO: Add your Firebase OTP resend logic here
+                    Toast.makeText(OtpActivity.this, "OTP Resent!", Toast.LENGTH_SHORT).show();
+
+                    // Restart the timer
+                    timeLeftInMillis = 60000;
+                    startResendOtpTimer();
+                });
+            }
+        }.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
         }
     }
 }
