@@ -43,7 +43,7 @@ public class HeapMap2Activity extends AppCompatActivity {
 
     // ─────────── CONFIG ───────────
     private static final String TAG = "HeapMap2Activity";
-    private static final String FLASK_IP = "http://192.168.0.196";   // <- change if different
+    private static final String FLASK_IP = "192.168.0.196";   // <- change if different
     private static final String POST_URL  = "http://" + FLASK_IP + ":5001/gradcam";
     private static final String IMAGE_URL = "http://" + FLASK_IP + ":5001/gradcam-image";
     // ──────────────────────────────
@@ -134,9 +134,7 @@ public class HeapMap2Activity extends AppCompatActivity {
                         } else {           // Non-Cancer: just toast
                             runOnUiThread(() -> {
                                 progressBar.setVisibility(View.GONE);
-                                Toast.makeText(HeapMap2Activity.this,
-                                        String.format("Prediction: Non-Cancer\nConfidence: %.3f", conf),
-                                        Toast.LENGTH_LONG).show();
+
                             });
                         }
                     } catch (JSONException e) {
@@ -170,9 +168,6 @@ public class HeapMap2Activity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     photoView.setImageBitmap(bmp);
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(HeapMap2Activity.this,
-                            String.format("Prediction: Cancer\nConfidence: %.3f", conf),
-                            Toast.LENGTH_LONG).show();
                 });
             }
         });
