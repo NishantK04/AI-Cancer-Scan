@@ -18,14 +18,14 @@
 ## 🔥 Key Features
 
 ### 1️⃣ **AI-Powered Cancer Detection** 🧬📷  
-✅ Upload CT scan images of **lung** or **breast**  
-✅ Predicts whether cancer is **present or not** using trained CNN models  
-✅ Accurate and fast predictions within seconds
+- Upload CT scan images of **lung** or **breast**  
+- Predicts whether cancer is **present or not** using trained CNN models  
+- Accurate and fast predictions within seconds
 
 ### 2️⃣ **Grad-CAM Visualization** 🔍  
-✅ Highlights **where the model is focusing** on the image  
-✅ Generates heatmaps for better clinical understanding  
-✅ Helps doctors locate suspicious regions
+- Highlights **where the model is focusing** on the image  
+- Generates heatmaps for better clinical understanding  
+- Helps doctors locate suspicious regions
 
 ### 3️⃣ **Interactive Medical Chatbot** 🤖💬  
 ✅ In-app AI chatbot for:  
