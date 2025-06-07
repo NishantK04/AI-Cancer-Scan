@@ -22,7 +22,7 @@
 ✅ Predicts whether cancer is **present or not** using trained CNN models  
 ✅ Accurate and fast predictions within seconds
 
-### 2️⃣ **Grad-CAM Visualization** 🌈🔍  
+### 2️⃣ **Grad-CAM Visualization** 🔍  
 ✅ Highlights **where the model is focusing** on the image  
 ✅ Generates heatmaps for better clinical understanding  
 ✅ Helps doctors locate suspicious regions
@@ -35,16 +35,10 @@
 
 ### 4️⃣ **Firebase Authentication** 🔐📲  
 ✅ Secure login using:  
-   - 📧 Email & Password  
+   - 📧 Email & Password  (In Development)
    - 🔒 Phone Number (OTP)  
    - 🔗 Google Sign-In  
 ✅ Ensures privacy and protection of sensitive medical data
-
-### 5️⃣ **Scan History & Cloud Sync** ☁️📁  (In Development)
-✅ Stores previous scan results securely using **Firebase Firestore**  
-✅ Access Grad-CAM overlays and predictions any time  
-✅ Organized patient records for follow-up
-
 ---
 
 ## 🚀 Installation & Setup
