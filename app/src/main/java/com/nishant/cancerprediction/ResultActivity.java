@@ -81,8 +81,10 @@ public class ResultActivity extends AppCompatActivity {
         // Set risk level and description
         resultRisk.setText(resultLabel);
 
+        String labelLower = resultLabel.toLowerCase();
+
         // Adjust logic based on confidence value
-        if (resultLabel.toLowerCase().contains("cancer")) {
+        if (labelLower.contains("cancer") && !labelLower.contains("non")) {
             // Confidence logic: Adjust the thresholds for high, moderate, and low
             if (confidence > 0.75) { // 75% and above is high confidence
                 resultDescription.setText("High confidence in cancer detection.\n\nPlease consult a doctor immediately for further evaluation.");

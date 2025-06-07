@@ -231,7 +231,7 @@ public class DetectCancerActivity extends AppCompatActivity {
                 if (cancerType.equals("lung")) {
                     int idx = output[0][0] > output[0][1] ? 0 : 1;
                     conf  = output[0][idx] * 100f;
-                    label = (idx == 0) ? "Non-Cancer (Benign)" : "Cancer (Malignant)";
+                    label = (idx == 0) ? "Non-Cancer" : "Cancer";
                 } else {
                     float non = output[0][0] * 100f;
                     float can = (1f - output[0][0]) * 100f;
