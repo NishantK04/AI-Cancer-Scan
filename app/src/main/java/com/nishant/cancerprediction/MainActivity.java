@@ -1,5 +1,7 @@
 package com.nishant.cancerprediction;
 
+import static com.nishant.cancerprediction.BuildConfig.DEFAULT_WEB_CLIENT_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,7 +20,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     String selectedCountryCode = "";
 
     private static final int RC_SIGN_IN = 9001;
+    // TODO: Replace this with your actual Web Client ID from Firebase Console
+
+
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
 
@@ -59,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
         ccp = findViewById(R.id.ccp);
         editTextPhone = findViewById(R.id.editTextPhone);
         loginButton = findViewById(R.id.loginButton);
-        googleSignInButton = findViewById(R.id.googleButton); // Add this in your XML
+        googleSignInButton = findViewById(R.id.googleButton);
 
-        // Google Sign-In setup
+        // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(BuildConfig.DEFAULT_WEB_CLIENT_ID)  // Make sure to replace with your web client ID
+                .requestIdToken(DEFAULT_WEB_CLIENT_ID)
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // Google Sign-In Button click
+        // Google Sign-In Button click listener
         googleSignInButton.setOnClickListener(v -> signInWithGoogle());
 
         // Set initial country code
@@ -81,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             setPhoneWithCountryCode();
         });
 
-        // Ensure country code remains at the start
+        // Ensure country code remains at the start of the phone number
         editTextPhone.addTextChangedListener(new TextWatcher() {
             boolean isEditing = false;
 
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Phone Number Login Button Clicked
+        // Phone number login button click listener
         loginButton.setOnClickListener(v -> {
             String mobile = editTextPhone.getText().toString().replaceAll("\\s+", "");
 
@@ -124,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
                     .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                         @Override
                         public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-                            // Optional: Auto verification
                             Toast.makeText(MainActivity.this, "Verification complete", Toast.LENGTH_SHORT).show();
                         }
 
@@ -175,7 +178,10 @@ public class MainActivity extends AppCompatActivity {
                             GoogleSignInAccount account = task.getResult();
                             firebaseAuthWithGoogle(account);
                         } else {
-                            Toast.makeText(MainActivity.this, "Google Sign-In failed", Toast.LENGTH_SHORT).show();
+                            Exception e = task.getException();
+                            Toast.makeText(MainActivity.this,
+                                    "Google Sign-In failed: " + (e != null ? e.getMessage() : "Unknown error"),
+                                    Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                             googleSignInButton.setEnabled(true);
                         }
@@ -186,18 +192,20 @@ public class MainActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         progressBar.setVisibility(View.VISIBLE);
 
-        FirebaseAuth.getInstance()
-                .signInWithCredential(GoogleAuthProvider.getCredential(account.getIdToken(), null))
+        mAuth.signInWithCredential(GoogleAuthProvider.getCredential(account.getIdToken(), null))
                 .addOnCompleteListener(this, task -> {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
-                        // Sign-in successful, go to Dashboard
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        FirebaseUser user = mAuth.getCurrentUser();
                         Intent intent = new Intent(MainActivity.this, dashBoardActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                        Exception e = task.getException();
+                        Toast.makeText(MainActivity.this,
+                                "Authentication Failed: " + (e != null ? e.getMessage() : "Unknown error"),
+                                Toast.LENGTH_LONG).show();
+                        googleSignInButton.setEnabled(true);
                     }
                 });
     }
@@ -205,9 +213,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            // If already signed in, go directly to Dashboard
+            // Already signed in, go to Dashboard
             Intent intent = new Intent(MainActivity.this, dashBoardActivity.class);
             startActivity(intent);
             finish();

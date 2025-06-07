@@ -1,6 +1,5 @@
 package com.nishant.cancerprediction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Nullable;

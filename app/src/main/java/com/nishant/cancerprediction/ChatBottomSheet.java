@@ -1,5 +1,6 @@
 package com.nishant.cancerprediction;
 
+
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -24,6 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -42,11 +44,10 @@ public class ChatBottomSheet extends BottomSheetDialogFragment {
     private Button btnSend;
     private ScrollView scrollView;
     private LinearLayout messagesContainer;
-
-    private static final String FLASK_SERVER_URL = "http://10.10.143.77:5003/ask";
-
-    private final OkHttpClient client = new OkHttpClient();
     private TextView typingIndicatorView;
+
+    private static final String FLASK_SERVER_URL = "http://192.168.0.196:5003/ask";
+    private final OkHttpClient client = new OkHttpClient();
 
     @Nullable
     @Override
@@ -63,14 +64,12 @@ public class ChatBottomSheet extends BottomSheetDialogFragment {
         ImageView arrowDown = view.findViewById(R.id.arrowDown);
         arrowDown.setOnClickListener(v -> dismiss());
 
-        // Show greeting message from bot when chat opens
         addMessageToContainer("Hi! I’m Micky. How can I help you?", false);
-
 
         btnSend.setOnClickListener(v -> {
             String userMessage = etUserMessage.getText().toString().trim();
             if (!userMessage.isEmpty()) {
-                addMessageToContainer(userMessage, true); // user = true
+                addMessageToContainer(userMessage, true);
                 etUserMessage.setText("");
                 typingIndicatorView = addMessageToContainer("Typing", false);
                 startTypingAnimation();
@@ -82,7 +81,7 @@ public class ChatBottomSheet extends BottomSheetDialogFragment {
     }
 
     private TextView addMessageToContainer(String message, boolean isUser) {
-        TextView textView = new TextView(getContext());
+        TextView textView = new TextView(requireContext());
         textView.setText(message);
         textView.setTextSize(16);
         textView.setTextColor(isUser ? Color.WHITE : Color.BLACK);

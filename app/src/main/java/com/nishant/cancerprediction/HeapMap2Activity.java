@@ -12,8 +12,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 

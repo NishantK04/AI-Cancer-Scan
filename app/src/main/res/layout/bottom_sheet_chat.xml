@@ -2,13 +2,15 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     app:cardCornerRadius="24dp"
     app:cardElevation="12dp"
     android:background="@android:color/transparent"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:foreground="?android:attr/selectableItemBackground"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +69,7 @@
             android:background="#DDDDDD"
             android:layout_marginBottom="8dp"/>
 
-        <!-- Enlarged ScrollView for chat -->
+        <!-- ScrollView for chat -->
         <ScrollView
             android:id="@+id/scrollViewBotReply"
             android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                 android:orientation="vertical" />
         </ScrollView>
 
-        <!-- Horizontal layout for input and send button -->
+        <!-- Input row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,7 +114,8 @@
                 android:textColor="@color/white"
                 android:background="@drawable/button_background"
                 android:layout_marginStart="8dp"
-                android:paddingHorizontal="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:minHeight="48dp"/>
         </LinearLayout>
 
