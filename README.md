@@ -14,7 +14,7 @@
 
 ### 1️⃣ **AI-Powered Cancer Detection** 🧬📷  
 - Upload CT scan images of **lung** or **breast**  
-- Predicts whether cancer is **present or not** using trained CNN models  
+- Predicts whether cancer is **present or not** using trained CNN models
 - Accurate and fast predictions within seconds
 
 ### 2️⃣ **Grad-CAM Visualization** 🔍  
