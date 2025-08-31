@@ -39,7 +39,7 @@
 ## 🚀 Installation & Setup
 ```sh
 # Clone the repository
-git clone https://github.com/yourusername/CancerDetect.git
+git clone https://github.com/NishantK04/AI-Cancer-Scan.git
 
 # Open the project in Android Studio
 
